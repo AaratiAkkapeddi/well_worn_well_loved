@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'Mazius Display-Regular';
+    src: url('./assets/fonts/MaziusDisplay-Regular.otf') format('opentype'),
+        url('./assets/fonts/MaziusDisplay-Regular.woff') format('woff'),
+        url('./assets/fonts/MaziusDisplay-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Mazius Display-ExtraItalic';
+    src: url('./assets/fonts/MaziusDisplay-ExtraItalic.otf') format('opentype'),
+        url('./assets/fonts/MaziusDisplay-ExtraItalic.woff') format('woff'),
+        url('./assets/fonts/MaziusDisplay-ExtraItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Mazius Display-Bold';
+    src: url('./assets/fonts/MaziusDisplay-Bold.otf') format('opentype'),
+        url('./assets/fonts/MaziusDisplay-Bold.woff') format('woff'),
+        url('./assets/fonts/MaziusDisplay-Bold.woff2') format('woff2');
+}
+
+:root {
+    --bg-color: #110e0e;
+    --text-color: #d1cdcd;
+    --font-size-small: 20px;
+    --font-size-base: 24px;
+    --font-size-large: 24px;
+    --space: 25px;
+    --font-family: 'Mazius Display-Regular', 'Arial', sans-serif;
+    --font-italic: 'Mazius Display-ExtraItalic', 'Arial', sans-serif;
+    --font-family-bold: 'Mazius Display-Bold', 'Arial', sans-serif;
+    
+}
+
+body {
+    margin: 0;
+    padding: calc(var(--space)*2);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    font-size: var(--font-size-base);
+}
+
+.button {
+    padding: 3px 5px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    margin-top: var(--space);
+    display: inline-block;
+    background-color: var(--bg-color);
+    cursor: pointer;
+    font-size: var(--font-size-small);
+}
+
+.button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.button-div {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: var(--space);
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: var(--font-size-large);
+    margin: 0;
+    /* font-family: var(--font-italic); */
+}
+
+h2 {
+    font-size: calc(var(--font-size-large) * 2);
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--font-italic);
+}
+
+p {
+    margin: calc(var(--space)/2) 0;
+}
+
+.fig-credit {
+    font-size: var(--font-size-small);
+    font-family: var(--font-italic);
+    font-style: normal;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+
+    padding: var(--space) calc(var(--space) * 2);
+    width: calc(100% - var(--space)*4);
+    background-color: var(--bg-color);
+}
+
+nav a {
+    text-decoration: none;
+    font-family: var(--font-italic);
+    font-size: var(--font-size-small);
+}
+
+nav a h1 {
+    font-family: var(--font-family-italic);
+}
+
+a,
+a:link,
+a:visited {
+    color: inherit;
+}
+
+main {
+    margin-top: calc(var(--space) + var(--font-size-large));
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: calc(var(--space) * 2);
+    width: calc(100%);
+}
+
+main>div {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space)/1);
+    width: 50%;
+}
+
+main>div.cable {
+    gap: calc(var(--space)/4);
+}
+
+main #right {
+    width: calc(40% - var(--space));
+}
+
+main #left {
+    width: calc(60% - var(--space));
+}
+
+main>div img {
+    width: 98%;
+    height: auto;
+}
+#demo .two-up{
+    margin-top: 8px;
+    gap: calc(var(--space)*2);
+    justify-content: center;
+}
+main#demo{
+    gap: 0;
+}
+.two-up {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--space)/2);
+
+}
+main#demo #left{
+
+ width: calc(55% - var(--space));
+}
+main#demo #right{
+    width: calc(45% - var(--space));
+}
+#custom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space)/2);
+}
+
+/* DEMO */
+.upload-area, .generate-area{
+    border:1px dashed #d1cdcd;
+    display: flex;
+}
+.upload-area img, .generate-area img{
+    opacity: 0;
+}
+#demo #right{
+    border: 1px dashed var(--text-color);
+    margin-top: 8px;
+}
+/* Animations */
+@keyframes drawPath {
+  from { stroke-dashoffset: 144.7; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+svg path {
+  fill: none;
+  stroke: var(--text-color);
+  stroke-miterlimit: 10;
+  stroke-dasharray: 144.7;
+  stroke-dashoffset: 144.7;
+  animation: drawPath 2s linear forwards;
+}
+
+svg circle {
+  fill: var(--text-color);
+  opacity: 0;
+  animation: fadeIn 0.04s linear forwards;
+}
+svg image {
+  opacity: 0;
+  animation: fadeIn 0.05s linear forwards;
+}
+#generate-img, #upload-img {
+  width: 300px;
+  height: 300px;
+}
+
+#generate-img {
+  opacity: 0;
+
+}
+#lightbox {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: var(--bg-color);
+  border-radius: 0;
+  padding: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  width: 350px;
+  border: 1px solid var(--text-color);
+}
+
+.lightbox-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.lightbox-content p {
+  margin: 0;
+  font-size: calc(var(--font-size-small)/1.7);
+  color: var(--text-color);
+  opacity: 0.8;
+  font-family: monospace ;
+  flex-basis: 20%;
+}
+.lightbox-content img {
+  width: 100%;
+  border-radius: 0;
+}
+
+.close {
+  position: absolute;
+  top: calc(-1 * var(--space)/2);
+  left: calc(-1 * var(--space)/4.3);
+  cursor: pointer;
+  font-size: calc(var(--font-size-large) *1.2 );
+  color: var(--text-color);
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.close:hover {
+  color: #333;
+}
+
+svg image {
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+svg image:hover {
+  transform: scale(1.5);
+}
+svg image:not(.selected):hover {
+  transform: scale(1.5);
+}
+@media(max-width:900px) {
+    :root{
+    --font-size-small: 16px;
+    --font-size-base: 18px;
+    --font-size-large: 18px;
+    --space: 15px;
+    }
+    main {
+        flex-direction: column;
+        padding-bottom: calc(var(--space) * 2);
+    }
+    main > div {
+        width: 100%;
+    }
+    main #right {
+        width: 100%;
+    }
+    main #left {
+        width: 100%;        
+    }
+    #demo .two-up {
+        /* flex-direction: column; */
+    }
+    #generate-img, #upload-img {
+        width: 30vw;
+        height: 30vw;
+    }   
+}
