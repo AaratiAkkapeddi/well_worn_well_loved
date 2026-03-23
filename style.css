@@ -158,6 +158,7 @@ main>div img {
     width: 98%;
     height: auto;
 }
+
 #demo .two-up{
     margin-top: 8px;
     gap: calc(var(--space)*2);
@@ -171,6 +172,10 @@ main#demo{
     align-items: flex-start;
     gap: calc(var(--space)/2);
 
+}
+.two-up > img {
+    width: 50%;
+    height: auto;
 }
 main#demo #left{
 
