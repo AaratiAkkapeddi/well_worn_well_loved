@@ -243,8 +243,8 @@ svg image {
 #lightbox {
   display: none;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: calc(var(--space) * 3);
+  left: 30%;
   z-index: 1000;
   background: var(--bg-color);
   border-radius: 0;
