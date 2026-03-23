@@ -8,7 +8,7 @@
 @font-face {
     font-family: 'Mazius Display-ExtraItalic';
     src: url('./assets/fonts/MaziusDisplay-ExtraItalic.otf') format('opentype'),
-        url('./assets/fonts/MaziusDisplay-ExtraItalic.woff') format('woff'),
+        url('./assets/fonts/MaziusDisplay-Extraitalic.woff') format('woff'),
         url('./assets/fonts/MaziusDisplay-ExtraItalic.woff2') format('woff2');
 }
 
